@@ -1,25 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Etho from './components/Etho';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core';
+import pink from '@material-ui/core/colors/pink';
+import purple from '@material-ui/core/colors/purple';
+
+const theme = createMuiTheme({
+  palette:{
+    primary:{
+      main: pink[800]
+    },
+    secondary:{
+      main: purple[800],
+      light:purple.A400,
+      dark:purple.A700
+    },
+    type:'light'
+  }
+})
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MuiThemeProvider theme = {theme}>
+      <div className="App">
+        <Etho />
+      </div>
+    </MuiThemeProvider>
   );
 }
 
